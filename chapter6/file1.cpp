@@ -1,0 +1,24 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+void multi_1()
+{
+    int m, n;
+    for (int i = 0; i < 10; i++)
+    {
+        for (int j = 0; j < 10; j++)
+        {
+            m = i * j;
+            if (!i && !j)
+                cout << setw(4) << "*";
+            else if (!i || !j)
+            {
+                n = (i > j) ? i : j;
+                cout << setw(4) << n;
+            }
+            else
+                cout << setw(4) << m;
+        }
+        cout << endl;
+    }
+}
