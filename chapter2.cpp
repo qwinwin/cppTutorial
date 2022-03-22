@@ -34,8 +34,8 @@ void q3()
 void q4()
 {
     const int stu_num = 500;
-    cout << "\"How many students here?\"" << endl
-         << "\"" << stu_num << "\"" << endl;
+    cout << "\"How many students here?\"\n\""
+         << stu_num << "\"\n";
 }
 void q5()
 {
@@ -45,7 +45,7 @@ void q5()
 void q6()
 {
     float a, b, c, s, area;
-    cout << "please input 3 sides of one triangle:" << endl;
+    cout << "please input 3 sides of one triangle:\n";
     cin >> a >> b >> c;
     s = (a + b + c) / 2;
     area = sqrt(s * (s - a) * (s - b) * (s - c));
@@ -80,7 +80,7 @@ void q8()
     double radius, height;
     cout << "Input radius and height of the cylinder:\n";
     cin >> radius >> height;
-    cout << area_of_cylinder(radius, height) << endl;
+    cout << fixed << area_of_cylinder(radius, height) << endl;
 }
 int main()
 {

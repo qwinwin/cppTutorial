@@ -76,8 +76,8 @@ void q4()
     int i, j, s;
     for (i = 2; i <= 1000; i++)
     {
-        s = 0;
-        for (j = 1; j < i; j++)
+        s = 1;
+        for (j = 2; j < i; j++)
         {
             if (i % j == 0)
                 s += j;
@@ -130,9 +130,9 @@ void q8()
     int row = 15;
     for (int i = 0; i < row; i++)
     {
-        for (int j = 2 * (row - 1); j > 2 * i; j--)
+        for (int j = row - 1; j > i; j--)
         {
-            cout << ' ';
+            cout << "  ";
         }
         for (int k = 0; k < 2 * i - 1; k++)
         {
@@ -154,7 +154,7 @@ void q8()
         cout << endl;
     }
 }
-void q9()
+void q9_1()
 {
     int m, n;
     for (int i = 0; i < 10; i++)
@@ -175,13 +175,62 @@ void q9()
         cout << endl;
     }
 }
+void q9_2()
+{
+    int m, n;
+    for (int i = 0; i < 10; i++)
+    {
+        for (int j = 0; j < 10; j++)
+        {
+            m = i * j;
+            if (!i && !j)
+                cout << setw(4) << "*";
+            else if (!i)
+                cout << setw(4) << j;
+            else if (j > i)
+                cout << setw(4) << " ";
+            else if (!i || !j)
+            {
+                n = (i > j) ? i : j;
+                cout << setw(4) << n;
+            }
+            else
+                cout << setw(4) << m;
+        }
+        cout << endl;
+    }
+}
+void q9_3()
+{
+    int m, n;
+    for (int i = 0; i < 10; i++)
+    {
+        for (int j = 0; j < 10; j++)
+        {
+            m = i * j;
+            if (!i && !j)
+                cout << setw(4) << "*";
+            else if (!j)
+                cout << setw(4) << i;
+            else if (j < i)
+                cout << setw(4) << " ";
+            else if (!i || !j)
+            {
+                n = (i > j) ? i : j;
+                cout << setw(4) << n;
+            }
+            else
+                cout << setw(4) << m;
+        }
+        cout << endl;
+    }
+}
 void q10()
 {
     int n, a = 1, b = 1, c = 1, s = 0;
     cin >> n;
     if (n < 4)
         cout << 1 << endl;
-
     else
     {
         for (int i = 4; i <= n; i++)
@@ -196,5 +245,5 @@ void q10()
 }
 int main()
 {
-    q9();
+    q10();
 }

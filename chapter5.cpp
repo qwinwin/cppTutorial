@@ -13,14 +13,14 @@ int fib(int x)
         return 1;
     }
 }
-int gcd1(int a, int b)
+int gcd1(int a, int b) //最大公约数
 {
     if (a % b == 0)
         return b;
     return gcd1(b, a % b);
 }
-int sum = 0;
-int njc(int n)
+// int sum = 0;
+int njc(int n) // n阶乘
 {
     for (int i = n - 1; i > 0; i--)
     {
@@ -28,8 +28,15 @@ int njc(int n)
     }
     return n;
 }
+int njc2(int n)
+{
+    if (n == 1)
+        return 1;
+    else
+        return n * njc2(n - 1);
+}
 // q1
-int isprime(long m)
+bool isprime(long m)
 {
     long i;
     double sqrtm = sqrt(m);
@@ -39,9 +46,9 @@ int isprime(long m)
             break;
     }
     if (sqrtm < i)
-        return 1;
+        return true;
     else
-        return 0;
+        return false;
 }
 // q2
 double f(double x) { return exp(x) / (1 + x * x); }
@@ -70,6 +77,7 @@ double integral(double a, double b)
     }
     return I2n;
 }
+// q3 见chapter4.cpp q9
 // q4
 int n = 1;
 void func()
@@ -102,6 +110,15 @@ int fib2(int n)
     }
     return s;
 }
+// q6
+double poly(int n, double x)
+{
+    if (n == 0)
+        return 1;
+    if (n == 1)
+        return x;
+    return ((2 * n - 1) * x * poly(n - 1, x) - (n - 1) * poly(n - 2, x)) / n;
+}
 void q7()
 {
     double x0, x1;
@@ -121,8 +138,10 @@ void display(char) { cout << "A char\n"; };
 void q8()
 {
     display(1.0);
+    display((float)1.0);
     display(1);
     display('1');
+    display((short)1);
 }
 // q9
 int q9(int n)

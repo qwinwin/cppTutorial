@@ -46,9 +46,9 @@ void q3()
             if (c <= 0)
                 w = a - b;
     }
-    else if (c > 0) // will not execute
+    else if (c > 0) // would not be executed
         w = a - b;
-    else // will not execute
+    else // would not be executed
         t = c;
     cout << s << ',' << w << ',' << t << endl;
 }
@@ -77,7 +77,7 @@ void q4()
         y = x - 1;
     else
     {
-        cout << "Err input" << endl;
+        cout << "Err input\n";
         return;
     }
     cout << "y=" << y << endl;
@@ -87,13 +87,14 @@ void q5()
     int x;
     cin >> x;
     if (x % 3 == 0)
-        cout << '3' << ' ';
+        cout << "3 ";
     if (x % 5 == 0)
-        cout << '5' << ' ';
+        cout << "5 ";
     if (x % 7 == 0)
-        cout << '7';
+        cout << "7";
     if ((x % 3 != 0) && (x % 5 != 0) && (x % 7 != 0))
-        cout << "Not devisible by 3, 5 or 7\n";
+        cout << "Not devisible by 3, 5 or 7";
+    cout << endl;
 }
 void q6()
 {
