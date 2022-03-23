@@ -100,7 +100,7 @@ string encryption(string s)
     string es;
     for (int i = 0; i < s.length(); i++)
     {
-        // sout << s[i] << ' ' << (int)s[i] << ' ' << e[i % 7] << endl;
+        // cout << s[i] << ' ' << (int)s[i] << ' ' << e[i % 7] << endl;
         es.append(1, char(((int)s[i] + e[i % 7] - '0') % 123));
     }
     return es;
@@ -111,11 +111,12 @@ string decryption(string s)
     string de = "";
     for (int i = 0; i < s.length(); i++)
     {
-        // sout << s[i] << ' ' << (int)s[i] << ' ' << e[i % 7] << ' ' << (int)s[i] - (e[i % 7] - '0') << ' ' << shar((int)s[i] - (e[i % 7] - '0')) << endl;
+        // cout << s[i] << ' ' << (int)s[i] << ' ' << e[i % 7] << ' ' << (int)s[i] - (e[i % 7] - '0') << ' ' << char((int)s[i] - (e[i % 7] - '0')) << endl;
         de.append(1, char((int)s[i] - (e[i % 7] - '0')));
     }
     return de;
 }
+//书中例子有误 'result'中的't'后为空格 例中(t)116+6后全都错了 取消103行注释编译运行查看正确过程
 void q4()
 {
     string ec = encryption("the result of 3 and 2 is not 8");
@@ -165,7 +166,7 @@ void q6()
 //         cout << "equal" << endl;
 //     return result;
 // }
-void traspose(int a[5][5])
+void transpose(int a[5][5])
 {
     for (int i = 0; i < 5; i++)
     {
@@ -188,13 +189,13 @@ void q8()
     {
         for (int j = 0; j < n; j++)
         {
-            a[i][j] = rand() % 65535;
+            a[i][j] = rand() % 65536;
             cout << a[i][j] << '\t';
         }
         cout << endl;
     }
     cout << endl;
-    traspose(a);
+    transpose(a);
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
@@ -212,9 +213,10 @@ void q9()
     {
         count++;
     }
+    // Debian11 运行会触发oom-killer 内核会在该进程把内存耗尽前杀掉 故下方cout无法执行
     cout << count * mem << endl;
 }
 int main()
 {
-    q9();
+    q1();
 }

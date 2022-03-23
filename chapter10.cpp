@@ -68,8 +68,9 @@ void print_chain(LNode *L)
 }
 void ins_chain(LNode *L)
 {
-    LNode *p = L->next;
-    while (p)
+    LNode *p = L;
+    bool flag = false;
+    while (p->next)
     {
         if (!strcmp(p->data, "jone"))
         {
@@ -77,12 +78,21 @@ void ins_chain(LNode *L)
             strcpy(s->data, "marit");
             s->next = p->next;
             p->next = s;
+            flag = true;
         }
         p = p->next;
+    }
+    if (!flag)
+    {
+        LNode *s = new LNode;
+        strcpy(s->data, "marit");
+        s->next = p->next;
+        p->next = s;
     }
 }
 void q2()
 {
+    // const char *data[MAXSIZE] = {"hello", "world", "sike", "helodf"};
     const char *data[MAXSIZE] = {"hello", "world", "jone", "helodf"};
     LNode *C;
     create_list_rear(C, data, 4);
@@ -90,7 +100,7 @@ void q2()
     ins_chain(C);
     print_chain(C);
 }
-void q3(LNode *L)
+void q3(LNode *L) //头插法
 {
     LNode *p = L->next;
     LNode *s;
@@ -103,6 +113,10 @@ void q3(LNode *L)
         L->next = s;
     }
 }
+// q4
+//(1)ShowList见print_chain, AddToEnd 即尾插 create_list_rear
+//(2)尾插 输出：3 5 7 6 4 8
+//(3)
 void DeleteList(LNode *L)
 {
     if (L)
@@ -111,11 +125,7 @@ void DeleteList(LNode *L)
         delete L;
     }
 }
-void q4()
-{
-    //尾插 输出：3 5 7 6 4 8
-}
-
+//归并
 void merge_chain(IntLNode *a, IntLNode *b, IntLNode *&c)
 {
     IntLNode *p = a->next;
@@ -170,6 +180,7 @@ typedef struct Student
 void q6()
 {
     Student *head = new Student;
+    head->num = 0;
     while (1)
     {
         Student *s = new Student;
@@ -181,7 +192,6 @@ void q6()
             cin >> s->name >> s->gender >> s->age;
             Student *p = head;
             Student *pre = p;
-            p->num = 0;
             while (p && p->num < s->num)
             {
                 pre = p;
@@ -193,12 +203,13 @@ void q6()
         else
             break;
     }
+    Student *p = head;
     do
     {
-        head = head->next;
-        cout << head->num << ' ' << head->name << ' '
-             << head->gender << ' ' << head->age << endl;
-    } while (head->next);
+        p = p->next;
+        cout << p->num << ' ' << p->name << ' '
+             << p->gender << ' ' << p->age << endl;
+    } while (p->next);
 }
 int main()
 {
