@@ -17,6 +17,11 @@ double Course::get_credit()
 }
 void Course::add_stu(Student *stu, double sc)
 {
+    if (num_of_stu == 30)
+    {
+        cout << "Reach the max quota\n";
+        return;
+    }
     student[num_of_stu] = stu;
     score[num_of_stu++] = sc;
 }

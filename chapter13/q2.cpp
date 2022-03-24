@@ -1,3 +1,4 @@
+// student.cpp course.cpp main_stu_cour.cpp的结合
 #include <iostream>
 #include <cstring>
 #include "q2.h"
@@ -17,6 +18,11 @@ double Course::get_credit()
 }
 void Course::add_stu(Student *stu, double sc)
 {
+    if (num_of_stu == 30)
+    {
+        cout << "Reach the max quota\n";
+        return;
+    }
     student[num_of_stu] = stu;
     score[num_of_stu++] = sc;
 }
@@ -87,6 +93,11 @@ double Student::get_avg_score()
 
 void Student::add_course(Course *c, double sc)
 {
+    if (num_of_courses == 5)
+    {
+        cout << "Reach the max quota\n";
+        return;
+    }
     course[num_of_courses++] = c;
     c->add_stu(this, sc);
 }

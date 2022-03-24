@@ -31,7 +31,7 @@ public:
 protected:
     double x;
     double y;
-};
+};//1.类定义少分号
 
 int main()
 {
@@ -39,6 +39,7 @@ int main()
     double x, y;
     cin >> x >> y;
     p.Set(x, y);
+    //2.protected 数据成员不能从外部直接访问或修改
     cout << p.angle() << " "
          << p.radius() << " "
          << p.xOffset() << " "

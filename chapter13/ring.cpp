@@ -13,7 +13,8 @@ Ring::Ring(int n, int beg) // number of boys ,begin position
         pCurrent = pCurrent->next;
     }
     remain_num = n;
-    pCurrent = &pBegin[n + beg - 2];
+    // pCurrent 指向环中将要报数的前一个孩子
+    pCurrent = &pBegin[(n + beg - 2) % n]; //书中未取余，`beg>2`时会导致数组溢出
 }
 void Ring::Count(int m)
 {

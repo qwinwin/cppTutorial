@@ -35,6 +35,11 @@ double Student::get_avg_score()
 
 void Student::add_course(Course *c, double sc)
 {
+    if (num_of_courses == 5)
+    {
+        cout << "Reach the max quota\n";
+        return;
+    }
     course[num_of_courses++] = c;
     c->add_stu(this, sc);
 }

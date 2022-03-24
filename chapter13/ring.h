@@ -9,7 +9,7 @@ class Ring
 {
 private:
     Boy *pBegin;
-    Boy *pivot; //当前结点的前一个结点(pre)
+    Boy *pivot; //指向当前结点的前一个结点(pre)
     Boy *pCurrent;
     int remain_num;
 
