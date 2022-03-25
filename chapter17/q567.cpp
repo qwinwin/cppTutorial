@@ -46,26 +46,36 @@ void create()
 }
 void withdrawal(unsigned aN, float amount)
 {
-    for (Account *p = Account::First(); p; p = p->Next())
+    Account *p = Account::First();
+    while (p)
     {
         if (p->AccountNo() == aN)
         {
             p->Withdrawal(amount);
             p->Display();
+            return;
         }
+        p = p->Next();
     }
+    if (!p)
+        cout << "Account doesn't exit!\n";
 }
 
 void deposit(unsigned aN, float amount)
 {
-    for (Account *p = Account::First(); p; p = p->Next())
+    Account *p = Account::First();
+    while (p)
     {
         if (p->AccountNo() == aN)
         {
             p->Deposit(amount);
             p->Display();
+            return;
         }
+        p = p->Next();
     }
+    if (!p)
+        cout << "Account doesn't exit!\n";
 }
 
 int main()
@@ -74,23 +84,30 @@ int main()
     int option;
     float amount;
     create();
+    cout << "--------ACCOUNT LIST----------" << endl;
     for (Account *p = Account::First(); p; p = p->Next())
     {
         p->Display();
     }
-    cout << "Input the account number:";
-    cin >> aN;
-    cout << "No\toption\n"
-         << "1\tDeposit\n"
-         << "2\tWithdrawal\n"
-         << "Select the option No:";
-    cin >> option;
-    cout << "Input the amount:";
-    cin >> amount;
-    if (option == 1)
-        deposit(aN, amount);
-    else if (option == 2)
-        withdrawal(aN, amount);
-
+    cout << "------------------------------" << endl;
+    while (true)
+    {
+        cout << "Input the account number:";
+        cin >> aN;
+        cout << "No\toption\n"
+             << "1\tDeposit\n"
+             << "2\tWithdrawal\n"
+             << "0\tquit!\n"
+             << "Select the option No:";
+        cin >> option;
+        if (option == 0)
+            break;
+        cout << "Input the amount:";
+        cin >> amount;
+        if (option == 1)
+            deposit(aN, amount);
+        else if (option == 2)
+            withdrawal(aN, amount);
+    }
     Account::RemoveLink();
 }

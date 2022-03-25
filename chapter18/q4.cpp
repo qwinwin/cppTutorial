@@ -79,12 +79,12 @@ RMB &RMB::operator-=(const RMB &a)
         tmp += 100;
         yuan--;
     }
-    jf = tmp;
     if (yuan < a.yuan)
     {
         cout << "Error:the minuend is less than the subtrahend\n";
         return *this;
     }
+    jf = tmp;
     yuan = yuan - a.yuan;
     return *this;
 }
@@ -98,12 +98,12 @@ RMB &RMB::operator-=(double d)
         tmp += 100;
         yuan--;
     }
-    jf = tmp;
     if (yuan < (int)d)
     {
         cout << "Error:the minuend is less than the subtrahend\n";
         return *this;
     }
+    jf = tmp;
     yuan = yuan - (int)d;
     return *this;
 }

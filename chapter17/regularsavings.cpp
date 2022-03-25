@@ -19,10 +19,10 @@ float RegularSavings::Interest()
 
 void RegularSavings::Withdrawal()
 {
-    float pastyears;
+    float pastyears, interest;
+    char option;
     cout << "Past time:";
     cin >> pastyears;
-    float interest;
     if (pastyears < period)
     {
         interest = 0.01;
@@ -32,6 +32,12 @@ void RegularSavings::Withdrawal()
         interest = Interest();
     }
     balance = balance * pow((1 + interest), pastyears);
+    cout << "RegularSavings can only be taken out all at once.\ncontinue? 'y' or 'n':";
+    cin >> option;
+    if (option == 'n')
+        return;
+    cout << balance << " withdrawn\n";
+    balance = 0;
 }
 
 void RegularSavings::Deposit(float a)

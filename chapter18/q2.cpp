@@ -55,7 +55,7 @@ void Time::set()
     cin >> h >> m >> s;
     if (hour > 24 || hour < 0 || minute > 60 || minute < 0 || second > 60 || second < 0)
     {
-        cout << "Invaild input" << endl;
+        cout << "Invaild input\n";
         return;
     }
     second = s;

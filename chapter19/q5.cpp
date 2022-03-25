@@ -49,10 +49,10 @@ int main()
         s->person.Set();
         tail->next = s;
         tail = s;
-        cout << "added successfully! type 'c' to continue adding, or 'q' to stop\n";
+        cout << "added successfully! continue? 'y' or 'n':";
         char tmp;
         cin >> tmp;
-        if (tmp == 'q')
+        if (tmp == 'n')
             break;
     }
     Contacts *p = head->next;

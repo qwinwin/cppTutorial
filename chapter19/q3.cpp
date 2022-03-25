@@ -1,17 +1,16 @@
 #include <iostream>
-#include <cstring>
 #include <sstream>
 using namespace std;
 
 int main()
 {
-    int a;
-    string str = "1 2 3 4 5 6 7 8 9";
+    char c;
+    string str = "1 2 3 4 5 6 7 8 9 ";
     istringstream s(str);
-    while (!s.eof())
+    while (s.get(c))
     {
-        s >> a;
-        cout << a;
+        if (isdigit(c))
+            cout << c;
     }
     cout << endl;
 }

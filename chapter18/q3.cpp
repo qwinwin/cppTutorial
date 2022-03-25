@@ -40,18 +40,14 @@ RMB &RMB::operator++()
 RMB operator*(const RMB &a, double d)
 {
     unsigned int y, j;
-    bool sign;
     if (d < 0)
     {
-        cout << "Nagative numbers are not support\n";
+        cout << "Nagative numbers are not support\n"; // unsigned yuan,jf
         return a;
     }
     y = a.yuan * d + (a.jf * d) / 100.0;
     j = a.yuan * d < 1 ? fmod(a.jf * d, 100) + a.yuan * d * 100 : fmod(a.jf * d, 100);
-    if (sign)
-        y = -y;
-    RMB r(y, j);
-    return r;
+    return RMB(y, j);
 }
 RMB operator*(double d, const RMB &a)
 {
